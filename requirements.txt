@@ -1,0 +1,9 @@
+# Test framework
+pytest==8.3.4
+
+# UI-automation
+playwright==1.49.1
+pytest-playwright==0.6.2
+
+# Reporting
+allure-pytest==2.16.0
