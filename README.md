@@ -15,13 +15,13 @@ pip
 
 pip install -r requirements.txt
 
-##Run all tests from one class
+### Run all tests from one class
 
 pytest tests/test_login.py::TestLogin
 
-##Run with report generation
+### Run with report generation
  pytest tests/test_login.py::TestLogin --alluredir=allure-results
 
-##See the report
+### See the report
 allure serve allure-results
 
