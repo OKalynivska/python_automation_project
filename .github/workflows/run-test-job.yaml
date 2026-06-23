@@ -6,3 +6,14 @@ on:
     - cron: '0 9 * * *'
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t playwright-tests .
+
+      - name: Run tests in container
+        run: docker run -v ${{ github.workspace }}/allure-results:/app/allure-results playwright-tests
