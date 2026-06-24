@@ -38,8 +38,8 @@ jobs:
       - name: Send summary to Telegram
         if: always()
         run: |
-          PASSED=$(grep -o '"status": *"passed"' allure-results/*.json | wc -l)
-          FAILED=$(grep -o '"status": *"failed"' allure-results/*.json | wc -l)  
+          PASSED=$(jq -r '.status' allure-results/*-result.json 2>/dev/null | grep -c "^passed$")
+          FAILED=$(jq -r '.status' allure-results/*-result.json 2>/dev/null | grep -c "^failed$")
           curl -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
                -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
                -d text="UI Tests Results: %0A✅ Passed: $PASSED%0A❌ Failed: $FAILED"
