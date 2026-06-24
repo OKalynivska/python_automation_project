@@ -31,6 +31,10 @@ jobs:
         if: always()
         run: allure generate allure-results --clean -o allure-report
 
+      - name: Debug - list allure results files
+        if: always()
+        run: ls -la allure-results/
+
       - name: Deploy to Netlify
         if: always()
         id: netlify-deploy
@@ -45,8 +49,8 @@ jobs:
       - name: Send report link to Telegram
         if: always()
         run: |
-          PASSED=$(jq -r '.status' allure-results/*-result.json 2>/dev/null | grep -c "^passed$")
-          FAILED=$(jq -r '.status' allure-results/*-result.json 2>/dev/null | grep -c "^failed$")
+          PASSED=$(jq -r '.status' allure-results/*-result.json 2>/dev/null | grep -c "^passed$" || echo 0)
+          FAILED=$(jq -r '.status' allure-results/*-result.json 2>/dev/null | grep -c "^failed$" || echo 0)
           curl -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
                -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
                -d text="UI Tests Results: %0A✅ Passed: $PASSED%0A❌ Failed: $FAILED%0A📊 Report: ${{ steps.netlify-deploy.outputs.deploy-url }}"
