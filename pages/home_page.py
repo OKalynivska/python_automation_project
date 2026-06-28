@@ -20,4 +20,4 @@ class HomePage(BasePage):
 
     @allure.step("Assert 'Left sidebar' is visible")
     def assert_left_sidebar_is_visible(self):
-        expect (HomeLocators.LEFT_BAR.to_be_visible(), "Left sidebar is visible")
+        expect (self.page.locator(HomeLocators.LEFT_BAR), "Left sidebar is visible")
