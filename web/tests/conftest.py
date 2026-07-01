@@ -2,8 +2,9 @@ import allure
 import pytest
 from playwright.sync_api import sync_playwright, Page
 
-from pages.home_page import HomePage
-from pages.welcome_page import WelcomePage
+from web.pages.home_page import HomePage
+from web.pages.view_product_page import ViewProductPage
+from web.pages.welcome_page import WelcomePage
 
 
 @pytest.fixture(scope="function", autouse=True)
@@ -17,6 +18,7 @@ def browser():
 def page(browser):
     page = browser.new_page()
     page.goto("https://automationexercise.com")
+    page.set_viewport_size({"width": 1920, "height": 1280})
     yield page
     page.close()
 
@@ -44,3 +46,7 @@ def welcome_page(page):
 @pytest.fixture
 def home_page(page):
     return HomePage(page)
+
+@pytest.fixture
+def view_product_page(page):
+    return ViewProductPage(page)

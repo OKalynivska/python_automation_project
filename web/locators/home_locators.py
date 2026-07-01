@@ -6,3 +6,4 @@ class HomeLocators:
     FEATURE_ITEMS_BLOCK=".features_items"
     FEATURE_ITEMS_BLOCK_TITLE=".features_items .title"
     PRODUCT_BLOCKS=".features_items .product-image-wrapper"
+    VIEW_PRODUCT_BUTTONS=".choose a"

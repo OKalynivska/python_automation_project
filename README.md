@@ -20,7 +20,7 @@ pip install -r requirements.txt
 pytest tests/test_login.py::TestLogin
 
 ### Run with report generation
- pytest tests --alluredir=allure-results
+ pytest web/tests --alluredir=allure-results
 
 ### See the report
 allure serve allure-results

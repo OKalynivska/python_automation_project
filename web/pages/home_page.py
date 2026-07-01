@@ -1,9 +1,11 @@
+import random
+
 import allure
 from playwright.sync_api import expect
 
-from locators.home_locators import HomeLocators
-from locators.navbar_locators import NavBarLocator
-from pages.base_page import BasePage
+from web.locators.home_locators import HomeLocators
+from web.locators.navbar_locators import NavBarLocator
+from web.pages.base_page import BasePage
 
 
 class HomePage(BasePage):
@@ -25,3 +27,9 @@ class HomePage(BasePage):
     @allure.step("Assert 'Left sidebar' is visible")
     def assert_left_sidebar_is_visible(self):
         expect(self.page.locator(HomeLocators.LEFT_BAR), "Left sidebar is visible")
+
+    @allure.step("Click on 'View product' button")
+    def click_on_view_product(self, random_index):
+        buttons = self.page.locator(HomeLocators.VIEW_PRODUCT_BUTTONS)
+        buttons.nth(random_index-1).click()
+        return self

@@ -1,8 +1,8 @@
 import allure
 
-from locators.login_locators import LoginLocators
-from locators.navbar_locators import NavBarLocator
-from pages.base_page import BasePage
+from web.locators.login_locators import LoginLocators
+from web.locators.navbar_locators import NavBarLocator
+from web.pages.base_page import BasePage
 
 
 class WelcomePage(BasePage):
