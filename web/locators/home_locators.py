@@ -7,3 +7,6 @@ class HomeLocators:
     FEATURE_ITEMS_BLOCK_TITLE=".features_items .title"
     PRODUCT_BLOCKS=".features_items .product-image-wrapper"
     VIEW_PRODUCT_BUTTONS=".choose a"
+    ADD_TO_CART_PRODUCT_BUTTONS=".single-products a"
+    PRODUCT_ITEMS=".single-products a"
+    ADD_TO_CART_OVERLAY_BUTTONS=".overlay-content a"

@@ -26,3 +26,8 @@ class ViewProductPage(BasePage):
         expect(self.page.locator(ViewProductLocators.PRODUCT_INFO_CATEGORIES)).to_contain_text(["Category", "Availability", "Condition", "Brand"])
         expect(self.page.locator(ViewProductLocators.SHOP_DETAILS_TAB)).to_be_visible()
         expect(self.page.locator(ViewProductLocators.SUBMIT_BUTTON)).to_be_visible()
+
+
+    @allure.step("Click on 'Add to cart' button")
+    def click_add_to_cart(self):
+        self.page.locator(ViewProductLocators.ADD_TO_CART_BUTTON).click()

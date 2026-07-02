@@ -5,3 +5,4 @@ class NavBarLocator(Enum):
     SIGH_UP_LINK=('link', 'Signup / Login')
     LOGOUT_LINK=('link', 'Logout')
     PRODUCTS_LINK=('link', ' Products')
+    CART_LINK=('link', 'Cart')

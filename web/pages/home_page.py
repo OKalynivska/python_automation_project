@@ -33,3 +33,13 @@ class HomePage(BasePage):
         buttons = self.page.locator(HomeLocators.VIEW_PRODUCT_BUTTONS)
         buttons.nth(random_index-1).click()
         return self
+
+    @allure.step("Click on 'Add to cart' button")
+    def click_on_add_to_cart_button(self, random_index):
+        product_item = self.page.locator(HomeLocators.PRODUCT_ITEMS)
+        overlay_buttons = self.page.locator(HomeLocators.ADD_TO_CART_OVERLAY_BUTTONS)
+        index = random_index - 1
+        self.page.wait_for_timeout(300)
+        product_item.nth(index).hover()
+        overlay_buttons.nth(index).click()
+
