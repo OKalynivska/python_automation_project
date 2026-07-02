@@ -22,6 +22,12 @@ def page(browser):
     yield page
     page.close()
 
+@pytest.fixture
+def logged_in_page(page):
+    welcome_page = WelcomePage(page)
+    home_page = welcome_page.log_in()
+    return home_page
+
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
     outcome = yield

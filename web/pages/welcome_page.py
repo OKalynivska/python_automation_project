@@ -37,3 +37,10 @@ class WelcomePage(BasePage):
     def click_login_button(self):
         self.page.locator(LoginLocators.LOGIN_BUTTON.value).click()
 
+    @allure.step("Log in")
+    def log_in(self, welcome_page, home_page):
+        (welcome_page.click_signup()
+         .fill_in_email("ta@user")
+         .fill_in_password("Password1_")
+         .click_login_button())
+
