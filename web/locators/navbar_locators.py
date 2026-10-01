@@ -6,3 +6,4 @@ class NavBarLocator(Enum):
     LOGOUT_LINK=('link', 'Logout')
     PRODUCTS_LINK=('link', ' Products')
     CART_LINK=('link', 'Cart')
+    TEST_CASES_LINK=('link', ' Test Cases')

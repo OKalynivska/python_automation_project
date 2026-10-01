@@ -5,6 +5,7 @@ from playwright.sync_api import sync_playwright, Page
 from web.pages.header import Header
 from web.pages.home_page import HomePage
 from web.pages.modal_component import ModalComponent
+from web.pages.test_cases_page import TestCasesPage
 from web.pages.view_cart_page import ViewCartPage
 from web.pages.view_product_page import ViewProductPage
 from web.pages.welcome_page import WelcomePage
@@ -71,3 +72,7 @@ def view_cart_page(page):
 @pytest.fixture
 def modal_component(page):
     return ModalComponent(page)
+
+@pytest.fixture
+def test_cases(page):
+    return TestCasesPage(page)

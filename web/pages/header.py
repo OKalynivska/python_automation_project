@@ -12,3 +12,8 @@ class Header(BasePage):
     def click_on_cart_button(self):
         role, name = NavBarLocator.CART_LINK.value
         self.page.get_by_role(role, name=name).click()
+
+    @allure.step("Click on 'Test Cases' button")
+    def click_on_test_cases_button(self):
+        role, name = NavBarLocator.TEST_CASES_LINK.value
+        self.page.get_by_role(role, name=name).click()
